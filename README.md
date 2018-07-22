@@ -1,7 +1,7 @@
 # textAnalyzer
 
-[![Build Status](https://travis-ci.org/vpodgurskiy/textAnalyzer.svg?branch=master)](https://travis-ci.org/vpodgurskiy/textAnalyzer) 
-[![Maintainability](https://api.codeclimate.com/v1/badges/bcd7049d885da1de93c4/maintainability)](https://codeclimate.com/github/vpodgurskiy/textAnalyzer/maintainability)
+[![Build Status](https://travis-ci.org/vpodgurskiy/textAnalyzer-2.svg?branch=master)](https://travis-ci.org/vpodgurskiy/textAnalyzer-2) 
+[![Maintainability](https://api.codeclimate.com/v1/badges/e4f198dd2d39cf6fc3c9/maintainability)](https://codeclimate.com/github/vpodgurskiy/textAnalyzer-2/maintainability)
 
 ## describe
 
