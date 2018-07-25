@@ -2,12 +2,12 @@ package analyzeModel;
 
 import java.util.TreeMap;
 
-public class TextStatistics {
+public class TextStatistics implements ITextStatistics{
 
-    private final int totalChar;
-    private final int totalCharWithoutSpaces;
-    private final TreeMap<Character, Integer> numberOfCharacters;
-    private final TreeMap<String, Integer> numberOfWords;
+    private int totalChar;
+    private int totalCharWithoutSpaces;
+    private TreeMap<Character, Integer> numberOfCharacters;
+    private TreeMap<String, Integer> numberOfWords;
 
     /**
      * Метод возвращает значение поля totalChar
@@ -59,8 +59,29 @@ public class TextStatistics {
     }
 
     /**
+     * Конструктор структуры анализа.
+     * @param totalChar всего символов в тексте
+     * @param totalCharWithoutSpaces всего символов без пробелов
+     */
+    public TextStatistics(final int totalChar, final int totalCharWithoutSpaces) {
+
+        this(totalChar, totalCharWithoutSpaces, null, null);
+    }
+
+    /**
+     * Конструктор структуры анализа.
+     * @param numberOfWords количество встречающихся слов
+     * @param numberOfCharacters количество встречающихся букв
+     */
+    public TextStatistics(final TreeMap<String, Integer> numberOfWords,
+                          final TreeMap<Character, Integer> numberOfCharacters) {
+
+        this(0, 0, numberOfWords, numberOfCharacters);
+    }
+
+    /**
      * Переопределенный метод, формирует строку вывода в консоль
-     * @return srt
+     * @return str
      */
     @Override
     public String toString() {

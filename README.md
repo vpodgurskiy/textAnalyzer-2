@@ -33,3 +33,16 @@ $ java -jar (Path to project)/target/textAnalyzer.jar
 
 - Количество встречающихся слов:
 {быть=1, в=1, должен=1, одну=1, пере=1, пили=2, строку=1, текст=2, тестовый=1}
+
+
+## help
+
+usage:
+
+    --h, print help
+
+    --char <arg>  print only char statistics
+
+    --word <arg>  print only word statistics
+
+    <arg> print full statistics

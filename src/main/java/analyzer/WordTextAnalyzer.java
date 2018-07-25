@@ -1,52 +1,18 @@
 package analyzer;
 
-import analyzeModel.TextStatistics;
 import analyzeModel.WordStatistics;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeMap;
 
-public class TextAnalyzer implements ITextAnalyzer{
-    /**
-     * Анализатор текста.
-     * На вход принимает текст и анализирует его.
-     * Возвращает структуру проделанного анализа(class analyzeModel.TextStatistics)
-     *
-     * @param text текст для анализа.
-     * @return структура проделанного анализа, содержит итоги анализа.
-     */
-    public TextStatistics parse(final String text) {
-        final int totalChar = totalChar(text);
-        final int totalCharWithoutSpaces = totalCharWithoutSpaces(text);
+public class WordTextAnalyzer implements ITextAnalyzer {
+
+    public WordStatistics parse(String text) {
         final TreeMap<Character, Integer> numberOfCharacters = numberOfCharacters(text);
         final TreeMap<String, Integer> numberOfWords = numberOfWords(text);
 
-        return new TextStatistics(totalChar, totalCharWithoutSpaces, numberOfWords, numberOfCharacters);
-    }
-
-    /**
-     * Метод на вход принимает текст, возвращает кол-во символов без пробелов
-     * @param text
-     * @return int
-     */
-    private int totalCharWithoutSpaces(String text) {
-        String[] arr = text.split("");
-        int totalCharWithoutSpaces = 0;
-        for (String item : arr) {
-            if (!" ".equals(item)) {
-                totalCharWithoutSpaces += 1;
-            }
-        }
-        return totalCharWithoutSpaces;
-    }
-
-    /**
-     * Метод принимает на вход текст и подсчитывает общее число символов в нем.
-     * @param text
-     * @return int
-     */
-    private int totalChar(String text) {
-        final int totalChar = text.length();
-        return totalChar;
+        return new WordStatistics(numberOfWords, numberOfCharacters);
     }
 
     /**

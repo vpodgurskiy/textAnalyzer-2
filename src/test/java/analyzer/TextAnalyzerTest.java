@@ -18,7 +18,7 @@ public class TextAnalyzerTest {
     public void textParser() {
         textForAnalyze = "раз, два, раз, три-четыре!";
 
-        textStatistics = TextAnalyzer.textParser(textForAnalyze);
+        textStatistics = new TextAnalyzer().parse(textForAnalyze);
 
         expectedTotalChar =  26;
         expectedTotalCharWithoutSpaces =  23;
