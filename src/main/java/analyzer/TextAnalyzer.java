@@ -28,7 +28,7 @@ public class TextAnalyzer implements ITextAnalyzer{
      * @param text
      * @return int
      */
-    private int totalCharWithoutSpaces(String text) {
+    public static int totalCharWithoutSpaces(String text) {
         String[] arr = text.split("");
         int totalCharWithoutSpaces = 0;
         for (String item : arr) {
@@ -44,7 +44,7 @@ public class TextAnalyzer implements ITextAnalyzer{
      * @param text
      * @return int
      */
-    private int totalChar(String text) {
+    public static int totalChar(String text) {
         final int totalChar = text.length();
         return totalChar;
     }
@@ -55,7 +55,7 @@ public class TextAnalyzer implements ITextAnalyzer{
      * @param text
      * @return сортированный map
      */
-    private TreeMap<Character, Integer> numberOfCharacters(String text) {
+    public static TreeMap<Character, Integer> numberOfCharacters(String text) {
         char[] textArr = text.toCharArray();
         List<Character> charArr = new ArrayList<Character>();
         for (char i : textArr) {
@@ -82,7 +82,7 @@ public class TextAnalyzer implements ITextAnalyzer{
      * @param text
      * @return сортированный map
      */
-    private TreeMap<String, Integer> numberOfWords(String text) {
+    public static TreeMap<String, Integer> numberOfWords(String text) {
         char[] textArr = text.toCharArray();
         List<Character> charArr = new ArrayList<Character>();
         for (char i : textArr) {

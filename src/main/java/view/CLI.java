@@ -1,9 +1,6 @@
 package view;
 
-import analyzeModel.CharStatistics;
 import analyzeModel.ITextStatistics;
-import analyzeModel.TextStatistics;
-import analyzeModel.WordStatistics;
 import analyzer.CharTextAnalyzer;
 import analyzer.TextAnalyzer;
 import analyzer.WordTextAnalyzer;
