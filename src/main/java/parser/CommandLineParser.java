@@ -1,15 +1,33 @@
 package parser;
 
+import view.Helper;
+
 public class CommandLineParser {
 
+    /**
+     * Парсит входящий поток данных, получает из него ключи
+     * и устанавливает значения ключей.
+     * В дальнейшем можно добавить исходящий ключ (OutputKey),
+     * а так же исходящий аргумент (OutputArgument) - например имя файла,
+     * в который записать статистику анализа
+     * @param inputStream
+     * @return
+     */
     public Options parse(final String inputStream) {
+
         Options options = new Options();
+
         if (inputStream.contains("--char")) {
-            options.add("--char", inputStream.substring(6));
+            options.setInputKey(InputKeys.chr);
+            options.setInputArgument(inputStream.substring(6));
         } else if (inputStream.contains("--word")) {
-            options.add("--word", inputStream.substring(6));
+            options.setInputKey(InputKeys.word);
+            options.setInputArgument(inputStream.substring(6));
         } else if (inputStream.contains("--h")) {
-            options.add("--h", null);
+            options.setInputKey(InputKeys.help);
+        } else {
+            options.setInputKey(InputKeys.deflt);
+            options.setInputArgument(inputStream);
         }
 
         return options;

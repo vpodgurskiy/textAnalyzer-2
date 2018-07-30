@@ -1,11 +1,10 @@
 package analyzer;
 
 import analyzeModel.TextStatistics;
-import analyzeModel.WordStatistics;
-
 import java.util.*;
 
-public class TextAnalyzer implements ITextAnalyzer{
+public class TextAnalyzer {
+
     /**
      * Анализатор текста.
      * На вход принимает текст и анализирует его.
@@ -14,13 +13,43 @@ public class TextAnalyzer implements ITextAnalyzer{
      * @param text текст для анализа.
      * @return структура проделанного анализа, содержит итоги анализа.
      */
-    public TextStatistics parse(final String text) {
+    public TextStatistics getTextStatistics(final String text) {
         final int totalChar = totalChar(text);
         final int totalCharWithoutSpaces = totalCharWithoutSpaces(text);
         final TreeMap<Character, Integer> numberOfCharacters = numberOfCharacters(text);
         final TreeMap<String, Integer> numberOfWords = numberOfWords(text);
 
         return new TextStatistics(totalChar, totalCharWithoutSpaces, numberOfWords, numberOfCharacters);
+    }
+
+    /**
+     * Анализатор текста.
+     * На вход принимает текст и анализирует его.
+     * Возвращает структуру проделанного анализа "посимвольно"(class analyzeModel.TextStatistics)
+     *
+     * @param text текст для анализа.
+     * @return структура проделанного анализа, содержит итоги анализа.
+     */
+    public TextStatistics getCharTextStatistics(final String text) {
+        final int totalChar = totalChar(text);
+        final int totalCharWithoutSpaces = totalCharWithoutSpaces(text);
+
+        return new TextStatistics(totalChar, totalCharWithoutSpaces);
+    }
+
+    /**
+     * Анализатор текста.
+     * На вход принимает текст и анализирует его.
+     * Возвращает структуру проделанного анализа использованных слов и букв(class analyzeModel.TextStatistics)
+     *
+     * @param text текст для анализа.
+     * @return структура проделанного анализа, содержит итоги анализа.
+     */
+    public TextStatistics getWordTextStatistics(final String text) {
+        final TreeMap<Character, Integer> numberOfCharacters = numberOfCharacters(text);
+        final TreeMap<String, Integer> numberOfWords = numberOfWords(text);
+
+        return new TextStatistics(numberOfWords, numberOfCharacters);
     }
 
     /**

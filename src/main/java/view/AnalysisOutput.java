@@ -1,6 +1,6 @@
 package view;
 
-import analyzeModel.ITextStatistics;
+import analyzeModel.TextStatistics;
 
 public class AnalysisOutput {
     /**
@@ -9,7 +9,7 @@ public class AnalysisOutput {
      *
      * @param textStatistics - итоговый анализ текста.
      */
-    public static void textPrinter(final ITextStatistics textStatistics) {
+    public static void textPrinter(final TextStatistics textStatistics) {
         System.out.println(textStatistics.toString());
     }
 }

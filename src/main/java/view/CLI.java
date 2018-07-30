@@ -1,12 +1,10 @@
 package view;
 
-import analyzeModel.ITextStatistics;
-import analyzer.CharTextAnalyzer;
+import analyzeModel.TextStatistics;
 import analyzer.TextAnalyzer;
-import analyzer.WordTextAnalyzer;
 import parser.CommandLineParser;
+import parser.InputKeys;
 import parser.Options;
-
 import java.util.*;
 
 public class CLI {
@@ -18,32 +16,54 @@ public class CLI {
      */
     public static void main(String[] args) {
 
-        System.out.printf("TextAnalyzer_>");
-        Scanner in = new Scanner(System.in);
-        final String InputStream = in.nextLine();
+        String inputStream = getInputText();
 
-        CommandLineParser parser = new CommandLineParser();
-        Options options = parser.parse(InputStream);
-
-        ITextStatistics textStatistics = null;
-
-        if (options.hasKey("--h")) {
+        Options options = parseParams(inputStream);
+        if (InputKeys.help.equals(options.getInputKey())) {
             Helper.printHelp();
             return;
-        } else if (options.hasKey("--char")) {
-            final String textForAnalyze = options.getValueOf("--char");
-            CharTextAnalyzer textAnalyzer = new CharTextAnalyzer();
-            textStatistics = textAnalyzer.parse(textForAnalyze);
-        } else if (options.hasKey("--word")) {
-            final String textForAnalyze = options.getValueOf("--word");
-            WordTextAnalyzer textAnalyzer = new WordTextAnalyzer();
-            textStatistics = textAnalyzer.parse(textForAnalyze);
-        } else {
-            final String textForAnalyze = InputStream;
-            TextAnalyzer textAnalyzer = new TextAnalyzer();
-            textStatistics = textAnalyzer.parse(textForAnalyze);
         }
 
+        TextStatistics textStatistics = analyzeText(options);
+
+        processResult(textStatistics);
+
+    }
+
+    private static void processResult(final TextStatistics textStatistics) {
         AnalysisOutput.textPrinter(textStatistics);
+    }
+
+    private static TextStatistics analyzeText(Options options) {
+
+        TextAnalyzer textAnalyzer = new TextAnalyzer();
+
+        TextStatistics textStatistics = null;
+
+        InputKeys inputKey = options.getInputKey();
+        String inputArgument = options.getInputArgument();
+
+        switch (inputKey) {
+            case chr:
+                textStatistics = textAnalyzer.getCharTextStatistics(inputArgument);
+                break;
+            case word:
+                textStatistics = textAnalyzer.getWordTextStatistics(inputArgument);
+                break;
+            case deflt: default:
+                textStatistics = textAnalyzer.getTextStatistics(inputArgument);
+                break;
+        }
+        return textStatistics;
+    }
+
+    private static Options parseParams(String inputStream) {
+        return new CommandLineParser().parse(inputStream);
+    }
+
+    private static String getInputText() {
+        System.out.printf("TextAnalyzer_>");
+        Scanner in = new Scanner(System.in);
+        return in.nextLine();
     }
 }
