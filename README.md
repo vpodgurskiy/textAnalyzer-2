@@ -40,6 +40,8 @@ $ java -jar (Path to project)/target/textAnalyzer.jar
 usage:
 
     --h, print help
+    
+    --quit, end programm
 
     --char <arg>  print only char statistics
 

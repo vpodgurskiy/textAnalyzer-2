@@ -23,6 +23,8 @@ public class CommandLineParser {
             options.setInputArgument(inputStream.substring(6));
         } else if (inputStream.contains("--h")) {
             options.setInputKey(InputKeys.help);
+        } else if (inputStream.contains("--quit")) {
+            options.setInputKey(InputKeys.quit);
         } else {
             options.setInputKey(InputKeys.deflt);
             options.setInputArgument(inputStream);

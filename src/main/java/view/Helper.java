@@ -12,7 +12,7 @@ public class Helper {
                 "--h, print help\n" +
                 "--char <arg>  print only char statistics\n" +
                 "--word <arg>  print only word statistics\n" +
-                "<arg> print full statistics\n";
+                "<arg> print full statistics\n\n";
 
         System.out.printf(help);
     }

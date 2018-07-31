@@ -16,18 +16,25 @@ public class CLI {
      */
     public static void main(String[] args) {
 
-        String inputStream = getInputText();
+        boolean runAnalyze = true;
 
-        Options options = parseParams(inputStream);
-        if (InputKeys.help.equals(options.getInputKey())) {
-            Helper.printHelp();
-            return;
+        while (runAnalyze) {
+
+            String inputStream = getInputText();
+
+            Options options = parseParams(inputStream);
+            if (InputKeys.help.equals(options.getInputKey())) {
+                Helper.printHelp();
+                continue;
+            }else if (InputKeys.quit.equals(options.getInputKey())) {
+                runAnalyze = false;
+                continue;
+            }
+
+            TextStatistics textStatistics = analyzeText(options);
+
+            processResult(textStatistics);
         }
-
-        TextStatistics textStatistics = analyzeText(options);
-
-        processResult(textStatistics);
-
     }
 
     private static void processResult(final TextStatistics textStatistics) {
