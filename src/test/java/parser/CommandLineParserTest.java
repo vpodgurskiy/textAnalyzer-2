@@ -12,5 +12,15 @@ public class CommandLineParserTest {
         final CommandLineParser parser = new CommandLineParser();
         final Options options = parser.parse(inputStream);
         assertThat(InputKeys.chr).isEqualTo(options.getInputKey());
+        assertThat("test input key").isEqualTo(options.getInputArgument());
+    }
+
+    @Test
+    public void parseFromFile() {
+        final String inputStream = "--ffile testFile.txt";
+        final CommandLineParser parser = new CommandLineParser();
+        final Options options = parser.parse(inputStream);
+        assertThat(InputKeys.ffile).isEqualTo(options.getInputKey());
+        assertThat("test string from file").isEqualTo(options.getInputArgument());
     }
 }
