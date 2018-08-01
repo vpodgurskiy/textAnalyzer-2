@@ -1,4 +1,4 @@
-package parser;
+package models;
 
 public class Options {
 
@@ -12,9 +12,13 @@ public class Options {
      */
     private InputKeys inputKey;
     private String inputArgument;
+    /***
+     * Кстати, вот сюда-же стоит добавлять опции записи и чтения из файла. но это потом.
+     * Мы еще будем обсуждать будет-ли оно создавать файл или писать в существующий.
+     */
 
     /**
-     * устанавливает inputKey -  ключ, указывающий как парсить
+     * устанавливает inputKey.
      * @param inputKey
      */
     public void setInputKey(final InputKeys inputKey) {
@@ -22,16 +26,16 @@ public class Options {
     }
 
     /**
-     * получает inputKey -  ключ, указывающий как парсить
-     * @return
+     * получает inputKey.
+     * @return inputKey.
      */
     public InputKeys getInputKey() {
         return this.inputKey;
     }
 
     /**
-     * устанавливает inputArgument - ключ, указывающий что парсить
-     * @param inputArgument
+     * устанавливает inputArgument.
+     * @param inputArgument - ключ, указывающий что парсить
      */
     public void setInputArgument(final String inputArgument) {
         this.inputArgument = inputArgument;
@@ -39,7 +43,7 @@ public class Options {
 
     /**
      * получает inputArgument - ключ, указывающий что парсить
-     * @return
+     * @return inputArgument.
      */
     public String getInputArgument() {
         return this.inputArgument;

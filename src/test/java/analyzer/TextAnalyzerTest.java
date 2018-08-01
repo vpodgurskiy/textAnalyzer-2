@@ -1,6 +1,6 @@
 package analyzer;
 
-import analyzeModel.TextStatistics;
+import models.TextStatistics;
 import org.junit.Test;
 import java.util.TreeMap;
 import static org.assertj.core.api.Assertions.*;

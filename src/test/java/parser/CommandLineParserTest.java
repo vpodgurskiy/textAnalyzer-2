@@ -1,5 +1,7 @@
 package parser;
 
+import models.InputKeys;
+import models.Options;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

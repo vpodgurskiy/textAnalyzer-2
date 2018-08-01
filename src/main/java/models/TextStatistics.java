@@ -1,4 +1,4 @@
-package analyzeModel;
+package models;
 
 import java.util.TreeMap;
 
