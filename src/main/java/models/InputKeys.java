@@ -9,6 +9,17 @@ public enum InputKeys {
      * Кстати тут документацией стоит описать каждый ключ.
      * Откуда я знаю где там тот хелп... а мне тут, как программисту, нужно разобраться в коде.
      */
-    chr, word, help, deflt, quit, ffile;
+    full(0), help(1), quit(2), chr(3), word(4);
+
+    private int numVal;
+
+    InputKeys(int numVal) {
+        this.numVal = numVal;
+    }
+
+    public int getNumVal() {
+        return numVal;
+    }
 
 }
+

@@ -3,11 +3,6 @@ package parser;
 import models.InputKeys;
 import models.Options;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 public class CommandLineParser {
 
     /**
@@ -36,27 +31,11 @@ public class CommandLineParser {
             options.setInputKey(InputKeys.help);
         } else if (inputStream.contains("--quit")) {
             options.setInputKey(InputKeys.quit);
-        } else if (inputStream.contains("--ffile")) {//пока-что думаю это лишнее
-            options.setInputKey(InputKeys.ffile);
-            options.setInputArgument(readFromFile(inputStream.substring(7)));
         } else {
-            options.setInputKey(InputKeys.deflt);
+            options.setInputKey(InputKeys.full);
             options.setInputArgument(inputStream);
         }
 
         return options;
-    }
-
-
-    // *отложим пока
-    private String readFromFile(String fileName) {
-        String str = "";
-        try {
-            str += Files.lines(Paths.get("src/test/java/testFile.txt"), StandardCharsets.UTF_8).toString();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println(str);
-        return str;
     }
 }
