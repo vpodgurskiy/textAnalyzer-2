@@ -30,21 +30,33 @@ public class TextStatisticsTest {
     }
 
 
+    /**
+     * Тест проверяет корректный возврат общего количества символов
+     */
     @Test
     public void getTotalChar() {
         assertThat(textStatistics.getTotalChar()).isEqualTo(expectedTotalChar);
     }
 
+    /**
+     * Тест проверяет корректный возврат количества символов без пробелов
+     */
     @Test
     public void getTotalCharWithoutSpaces() {
         assertThat(textStatistics.getTotalCharWithoutSpaces()).isEqualTo(expectedTotalCharWithoutSpaces);
     }
 
+    /**
+     * Тест проверяет корректный возврат встречающегося количества букв
+     */
     @Test
     public void getNumberOfCharacters() {
         assertThat(textStatistics.getNumberOfCharacters()).isEqualTo(expectedNumberOfCharacters);
     }
 
+    /**
+     * Тест проверяет корректный возврат встречающегося количества слов
+     */
     @Test
     public void getNumberOfWords() {
         assertThat(textStatistics.getNumberOfWords()).isEqualTo(expectedNumberOfWords);

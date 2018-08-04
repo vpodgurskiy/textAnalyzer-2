@@ -8,6 +8,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CommandLineParserTest {
 
+    /**
+     * Тест проверяет парсинг ключей в заданной строке
+     */
     @Test
     public void parse() {
         final String inputStream = "--char test input key";

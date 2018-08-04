@@ -29,21 +29,21 @@ public class CLI {
             String inputArgument = options.getInputArgument();
 
             switch (inputKey.getNumVal()) {
-                case 1:
-                    Helper.printHelp();
+                case 1: //help
+                    System.out.println(inputArgument);
                     break;
-                case 2:
+                case 2: //quit
                     runAnalyze = false;
                     break;
-                case 3:
+                case 3: //chr
                     textStatistics = textAnalyzer.getCharTextStatistics(inputArgument);
-                    System.out.println(textStatistics.toString());
+                    System.out.println(textStatistics.toStringChar());
                     break;
-                case 4:
+                case 4: //word
                     textStatistics = textAnalyzer.getWordTextStatistics(inputArgument);
-                    System.out.println(textStatistics.toString());
+                    System.out.println(textStatistics.toStringWord());
                     break;
-                default:
+                default: //full
                     textStatistics = textAnalyzer.getTextStatistics(inputArgument);
                     System.out.println(textStatistics.toString());
                     break;

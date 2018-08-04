@@ -14,6 +14,9 @@ public class TextAnalyzerTest {
     private TextStatistics textStatistics;
     private String textForAnalyze;
 
+    /**
+     * Тест проверяет полный анализ заданой строки
+     */
     @Test
     public void textParser() {
         textForAnalyze = "раз, два, раз, три-четыре!";

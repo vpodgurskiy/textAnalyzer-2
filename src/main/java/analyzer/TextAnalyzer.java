@@ -37,8 +37,8 @@ public class TextAnalyzer {
     public TextStatistics getCharTextStatistics(final String text) {
         final int totalChar = totalChar(text);
         final int totalCharWithoutSpaces = totalCharWithoutSpaces(text);
-
-        return new TextStatistics(totalChar, totalCharWithoutSpaces);
+        final TreeMap<Character, Integer> numberOfCharacters = numberOfCharacters(text);
+        return new TextStatistics(totalChar, totalCharWithoutSpaces, numberOfCharacters);
     }
 
     /**
@@ -50,10 +50,9 @@ public class TextAnalyzer {
      * @return структура проделанного анализа, содержит итоги анализа.
      */
     public TextStatistics getWordTextStatistics(final String text) {
-        final TreeMap<Character, Integer> numberOfCharacters = numberOfCharacters(text);
         final TreeMap<String, Integer> numberOfWords = numberOfWords(text);
 
-        return new TextStatistics(numberOfWords, numberOfCharacters);
+        return new TextStatistics(numberOfWords);
     }
 
     /**

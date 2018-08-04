@@ -29,6 +29,7 @@ public class CommandLineParser {
             options.setInputArgument(inputStream.substring(7));
         } else if (inputStream.contains("--h")) {
             options.setInputKey(InputKeys.help);
+            options.setInputArgument(help());
         } else if (inputStream.contains("--quit")) {
             options.setInputKey(InputKeys.quit);
         } else {
@@ -37,5 +38,19 @@ public class CommandLineParser {
         }
 
         return options;
+    }
+
+    public static String help() {
+
+        /**
+         * формирует строку помощи.
+         */
+        return  "\n" +
+                "usage:\n\n" +
+                "--h, print help\n" +
+                "<arg> print full statistics\n" +
+                "--char <arg>  print only char statistics\n" +
+                "--word <arg>  print only word statistics\n" +
+                "--quit, end program\n\n";
     }
 }

@@ -41,10 +41,10 @@ usage:
 
     --h, print help
     
-    --quit, end programm
-
+    <arg> print full statistics
+    
     --char <arg>  print only char statistics
 
     --word <arg>  print only word statistics
-
-    <arg> print full statistics
+        
+    --quit, end program

@@ -19,13 +19,17 @@ public class OptionsTest {
         options.setInputArgument(inputArgument);
     }
 
-
-
+    /**
+     * Тест проверяет корректность установки входящего ключа
+     */
     @Test
     public void get_setInputKey() {
         assertThat(inputKey).isEqualTo(options.getInputKey());
     }
 
+    /**
+     * Тест проверяет корректность установки входящего аргумента
+     */
     @Test
     public void get_setInputArgument() {
         assertThat(inputArgument).isEqualTo(options.getInputArgument());
