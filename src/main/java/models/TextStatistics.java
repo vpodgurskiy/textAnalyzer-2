@@ -97,6 +97,10 @@ public class TextStatistics {
         return stringBuilder.toString();
     }
 
+    /**
+     * Метод, формирует строку вывода в консоль по статистике символов
+     * @return str
+     */
     public String toStringChar() {
         StringBuilder stringBuilder = new StringBuilder()
                 .append("\n")
@@ -108,6 +112,10 @@ public class TextStatistics {
         return stringBuilder.toString();
     }
 
+    /**
+     * Метод, формирует строку вывода в консоль по статистике слов
+     * @return str
+     */
     public String toStringWord() {
         StringBuilder stringBuilder = new StringBuilder()
                 .append("\n")

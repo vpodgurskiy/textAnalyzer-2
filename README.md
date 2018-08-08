@@ -39,7 +39,7 @@ $ java -jar (Path to project)/target/textAnalyzer.jar
 
 usage:
 
-    --h, print help
+    --help, print help
     
     <arg> print full statistics
     

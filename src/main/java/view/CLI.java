@@ -2,9 +2,6 @@ package view;
 
 import models.TextStatistics;
 import analyzer.TextAnalyzer;
-import parser.CommandLineParser;
-import models.InputKeys;
-import models.Options;
 import java.util.*;
 
 public class CLI {
@@ -20,31 +17,36 @@ public class CLI {
 
         TextStatistics textStatistics;
 
+        final String CHAR = "--char";
+        final String WORD = "--word";
+        final String HELP = "--help";
+        final String QUIT = "--quit";
+
         boolean runAnalyze = true;
 
         while (runAnalyze) {
 
-            Options options = new CommandLineParser().parse(getInputText());
-            InputKeys inputKey = options.getInputKey();
-            String inputArgument = options.getInputArgument();
+            final String inputStream = getInputText();
 
-            switch (inputKey.getNumVal()) {
-                case 1: //help
-                    System.out.println(inputArgument);
-                    break;
-                case 2: //quit
-                    runAnalyze = false;
-                    break;
-                case 3: //chr
-                    textStatistics = textAnalyzer.getCharTextStatistics(inputArgument);
+            final String key = inputStream.substring(0, 6);
+
+            switch (key) {
+                case CHAR:
+                    textStatistics = textAnalyzer.getCharTextStatistics(inputStream.substring(7));
                     System.out.println(textStatistics.toStringChar());
                     break;
-                case 4: //word
-                    textStatistics = textAnalyzer.getWordTextStatistics(inputArgument);
+                case WORD:
+                    textStatistics = textAnalyzer.getWordTextStatistics(inputStream.substring(7));
                     System.out.println(textStatistics.toStringWord());
                     break;
-                default: //full
-                    textStatistics = textAnalyzer.getTextStatistics(inputArgument);
+                case HELP:
+                    System.out.println(help());
+                    break;
+                case QUIT:
+                    runAnalyze = false;
+                    break;
+                default:
+                    textStatistics = textAnalyzer.getTextStatistics(inputStream);
                     System.out.println(textStatistics.toString());
                     break;
             }
@@ -59,5 +61,19 @@ public class CLI {
         System.out.printf("TextAnalyzer_>");
         Scanner in = new Scanner(System.in);
         return in.nextLine();
+    }
+
+    /**
+     * формирует строку помощи.
+     */
+    private static String help() {
+
+        return  "\n" +
+                "usage:\n\n" +
+                "--help, print help\n" +
+                "<arg> print full statistics\n" +
+                "--char <arg>  print only char statistics\n" +
+                "--word <arg>  print only word statistics\n" +
+                "--quit, end program\n\n";
     }
 }
