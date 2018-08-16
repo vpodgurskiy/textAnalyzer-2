@@ -9,7 +9,7 @@ public class CLI {
     /**
      * main метод, ожидает строку ввода из консоли,
      * затем анализирует введенный текст и обрабатывает результат.
-     * @param args
+     * @param args -
      */
     public static void main(String[] args) {
 
@@ -22,21 +22,33 @@ public class CLI {
         final String HELP = "--help";
         final String QUIT = "--quit";
 
+        final int KEY_LENGTH = 6;
+
         boolean runAnalyze = true;
 
         while (runAnalyze) {
 
             final String inputStream = getInputText();
 
-            final String key = inputStream.substring(0, 6);
+            int finalIndex = inputStream.length() <= KEY_LENGTH ? inputStream.length() : KEY_LENGTH;
+
+            final String key = inputStream.substring(0, finalIndex);
 
             switch (key) {
                 case CHAR:
-                    textStatistics = textAnalyzer.getCharTextStatistics(inputStream.substring(7));
+                    if (inputStream.length() <= KEY_LENGTH) {
+                        System.out.println(help());
+                        break;
+                    }
+                    textStatistics = textAnalyzer.getCharTextStatistics(inputStream.substring(KEY_LENGTH + 1));
                     System.out.println(textStatistics.toStringChar());
                     break;
                 case WORD:
-                    textStatistics = textAnalyzer.getWordTextStatistics(inputStream.substring(7));
+                    if (inputStream.length() <= KEY_LENGTH) {
+                        System.out.println(help());
+                        break;
+                    }
+                    textStatistics = textAnalyzer.getWordTextStatistics(inputStream.substring(KEY_LENGTH + 1));
                     System.out.println(textStatistics.toStringWord());
                     break;
                 case HELP:

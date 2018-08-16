@@ -60,7 +60,7 @@ public class TextAnalyzer {
      * @param text
      * @return int
      */
-    public int totalCharWithoutSpaces(String text) {
+    private int totalCharWithoutSpaces(String text) {
         String[] arr = text.split("");
         int totalCharWithoutSpaces = 0;
         for (String item : arr) {
@@ -76,7 +76,7 @@ public class TextAnalyzer {
      * @param text
      * @return int
      */
-    public int totalChar(String text) {
+    private int totalChar(String text) {
         final int totalChar = text.length();
         return totalChar;
     }
@@ -87,7 +87,7 @@ public class TextAnalyzer {
      * @param text
      * @return сортированный map
      */
-    public TreeMap<Character, Integer> numberOfCharacters(String text) {
+    private TreeMap<Character, Integer> numberOfCharacters(String text) {
         char[] textArr = text.toCharArray();
         List<Character> charArr = new ArrayList<Character>();
         for (char i : textArr) {
@@ -114,7 +114,7 @@ public class TextAnalyzer {
      * @param text
      * @return сортированный map
      */
-    public TreeMap<String, Integer> numberOfWords(String text) {
+    private TreeMap<String, Integer> numberOfWords(String text) {
         char[] textArr = text.toCharArray();
         List<Character> charArr = new ArrayList<Character>();
         for (char i : textArr) {
