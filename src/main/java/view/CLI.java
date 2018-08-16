@@ -70,7 +70,8 @@ public class CLI {
      * @return
      */
     private static String getInputText() {
-        System.out.printf("TextAnalyzer_>");
+        System.out.println("TextAnalyzer_>");
+        System.out.println("input key and text:");
         Scanner in = new Scanner(System.in);
         return in.nextLine();
     }
