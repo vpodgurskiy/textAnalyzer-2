@@ -14,7 +14,7 @@ public class TextAnalyzer {
      * На вход принимает текст и анализирует его.
      * Возвращает структуру проделанного анализа(class models.TextStatistics)
      *
-     * @param text текст для анализа.
+     * @param text - строка которая будет проанализирована.
      * @return структура проделанного анализа, содержит итоги анализа.
      */
     public TextStatistics getTextStatistics(final String text) {
@@ -31,7 +31,7 @@ public class TextAnalyzer {
      * На вход принимает текст и анализирует его.
      * Возвращает структуру проделанного анализа "посимвольно"(class models.TextStatistics)
      *
-     * @param text текст для анализа.
+     * @param text - строка которая будет проанализирована.
      * @return структура проделанного анализа, содержит итоги анализа.
      */
     public TextStatistics getCharTextStatistics(final String text) {
@@ -46,7 +46,7 @@ public class TextAnalyzer {
      * На вход принимает текст и анализирует его.
      * Возвращает структуру проделанного анализа использованных слов и букв(class models.TextStatistics)
      *
-     * @param text текст для анализа.
+     * @param text - строка которая будет проанализирована.
      * @return структура проделанного анализа, содержит итоги анализа.
      */
     public TextStatistics getWordTextStatistics(final String text) {
@@ -57,7 +57,7 @@ public class TextAnalyzer {
 
     /**
      * Метод на вход принимает текст, возвращает кол-во символов без пробелов
-     * @param text
+     * @param text - строка которая будет проанализирована.
      * @return int
      */
     private int totalCharWithoutSpaces(String text) {
@@ -73,7 +73,7 @@ public class TextAnalyzer {
 
     /**
      * Метод принимает на вход текст и подсчитывает общее число символов в нем.
-     * @param text
+     * @param text - строка которая будет проанализирована.
      * @return int
      */
     private int totalChar(String text) {
@@ -84,7 +84,7 @@ public class TextAnalyzer {
     /**
      * Метод на вход принимает техт, возвращает сортированный по ключам map.
      * Метод подсчитывает колличество букв, в тексте, заглавные или сторчные как одна.
-     * @param text
+     * @param text - строка которая будет проанализирована.
      * @return сортированный map
      */
     private TreeMap<Character, Integer> numberOfCharacters(String text) {
@@ -111,7 +111,7 @@ public class TextAnalyzer {
     /**
      * Метод принимает на вход текст, подсчитывает кол-во каждого слова в тексте.
      * Метод возвращает сортированный map. Слово и кол-во этого слова в тексте.
-     * @param text
+     * @param text - строка которая будет проанализирована.
      * @return сортированный map
      */
     private TreeMap<String, Integer> numberOfWords(String text) {
