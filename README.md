@@ -41,7 +41,7 @@ usage:
 
     --help, print help
     
-    <arg> print full statistics
+    --full <arg> print full statistics
     
     --char <arg>  print only char statistics
 

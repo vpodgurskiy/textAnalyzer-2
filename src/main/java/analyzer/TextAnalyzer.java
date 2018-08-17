@@ -10,52 +10,6 @@ import java.util.*;
 public class TextAnalyzer {
 
     /**
-     * Анализатор текста.
-     * На вход принимает текст и анализирует его.
-     * Возвращает структуру проделанного анализа(class models.TextStatistics)
-     *
-     * @param text - строка которая будет проанализирована.
-     * @return структура проделанного анализа, содержит итоги анализа.
-     */
-    public TextStatistics getTextStatistics(final String text) {
-        final int totalChar = totalChar(text);
-        final int totalCharWithoutSpaces = totalCharWithoutSpaces(text);
-        final TreeMap<Character, Integer> numberOfCharacters = numberOfCharacters(text);
-        final TreeMap<String, Integer> numberOfWords = numberOfWords(text);
-
-        return new TextStatistics(totalChar, totalCharWithoutSpaces, numberOfWords, numberOfCharacters);
-    }
-
-    /**
-     * Анализатор текста.
-     * На вход принимает текст и анализирует его.
-     * Возвращает структуру проделанного анализа "посимвольно"(class models.TextStatistics)
-     *
-     * @param text - строка которая будет проанализирована.
-     * @return структура проделанного анализа, содержит итоги анализа.
-     */
-    public TextStatistics getCharTextStatistics(final String text) {
-        final int totalChar = totalChar(text);
-        final int totalCharWithoutSpaces = totalCharWithoutSpaces(text);
-        final TreeMap<Character, Integer> numberOfCharacters = numberOfCharacters(text);
-        return new TextStatistics(totalChar, totalCharWithoutSpaces, numberOfCharacters);
-    }
-
-    /**
-     * Анализатор текста.
-     * На вход принимает текст и анализирует его.
-     * Возвращает структуру проделанного анализа использованных слов и букв(class models.TextStatistics)
-     *
-     * @param text - строка которая будет проанализирована.
-     * @return структура проделанного анализа, содержит итоги анализа.
-     */
-    public TextStatistics getWordTextStatistics(final String text) {
-        final TreeMap<String, Integer> numberOfWords = numberOfWords(text);
-
-        return new TextStatistics(numberOfWords);
-    }
-
-    /**
      * Метод на вход принимает текст, возвращает кол-во символов без пробелов
      * @param text - строка которая будет проанализирована.
      * @return int
@@ -144,5 +98,51 @@ public class TextAnalyzer {
             wordUnique.put(i, 1);
         }
         return wordUnique;
+    }
+
+    /**
+     * Анализатор текста.
+     * На вход принимает текст и анализирует его.
+     * Возвращает структуру проделанного анализа(class models.TextStatistics)
+     *
+     * @param text - строка которая будет проанализирована.
+     * @return структура проделанного анализа, содержит итоги анализа.
+     */
+    public TextStatistics getTextStatistics(final String text) {
+        final int totalChar = totalChar(text);
+        final int totalCharWithoutSpaces = totalCharWithoutSpaces(text);
+        final TreeMap<Character, Integer> numberOfCharacters = numberOfCharacters(text);
+        final TreeMap<String, Integer> numberOfWords = numberOfWords(text);
+
+        return new TextStatistics(totalChar, totalCharWithoutSpaces, numberOfWords, numberOfCharacters);
+    }
+
+    /**
+     * Анализатор текста.
+     * На вход принимает текст и анализирует его.
+     * Возвращает структуру проделанного анализа "посимвольно"(class models.TextStatistics)
+     *
+     * @param text - строка которая будет проанализирована.
+     * @return структура проделанного анализа, содержит итоги анализа.
+     */
+    public TextStatistics getCharTextStatistics(final String text) {
+        final int totalChar = totalChar(text);
+        final int totalCharWithoutSpaces = totalCharWithoutSpaces(text);
+        final TreeMap<Character, Integer> numberOfCharacters = numberOfCharacters(text);
+        return new TextStatistics(totalChar, totalCharWithoutSpaces, numberOfCharacters);
+    }
+
+    /**
+     * Анализатор текста.
+     * На вход принимает текст и анализирует его.
+     * Возвращает структуру проделанного анализа использованных слов и букв(class models.TextStatistics)
+     *
+     * @param text - строка которая будет проанализирована.
+     * @return структура проделанного анализа, содержит итоги анализа.
+     */
+    public TextStatistics getWordTextStatistics(final String text) {
+        final TreeMap<String, Integer> numberOfWords = numberOfWords(text);
+
+        return new TextStatistics(numberOfWords);
     }
 }

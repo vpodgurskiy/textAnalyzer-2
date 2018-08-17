@@ -30,47 +30,31 @@ public class CLI {
 
             final String inputStream = getInputText();
 
-            int index = inputStream.length() <= KEY_LENGTH ? inputStream.length() : KEY_LENGTH;
-
+            final int index = inputStream.length() <= KEY_LENGTH ? inputStream.length() : KEY_LENGTH;
             final String key = inputStream.substring(0, index);
+
+            if (!key.equals(QUIT) && !key.equals(HELP) && inputStream.length() <= KEY_LENGTH) {
+                System.out.println(help());
+                continue;
+            }
 
             switch (key) {
                 case FULL:
-
-                    //Избавляемся от ифов
-                    if (inputStream.length() <= KEY_LENGTH) {
-                        System.out.println(help());
-                        break;
-                    }
                     textStatistics = textAnalyzer.getTextStatistics(inputStream);
                     System.out.println(textStatistics.toString());
                     break;
-
                 case CHAR:
-                    //Избавляемся от ифов
-                    if (inputStream.length() <= KEY_LENGTH) {
-                        System.out.println(help());
-                        break;
-                    }
                     textStatistics = textAnalyzer.getCharTextStatistics(inputStream.substring(KEY_LENGTH + 1));
                     System.out.println(textStatistics.toStringChar());
                     break;
                 case WORD:
-                    //Избавляемся от ифов
-                    if (inputStream.length() <= KEY_LENGTH) {
-                        System.out.println(help());
-                        break;
-                    }
                     textStatistics = textAnalyzer.getWordTextStatistics(inputStream.substring(KEY_LENGTH + 1));
                     System.out.println(textStatistics.toStringWord());
-                    break;
-                case HELP:
-                    System.out.println(help());
                     break;
                 case QUIT:
                     runAnalyze = false;
                     break;
-                default:
+                case HELP: default:
                     System.out.println(help());
                     break;
             }
