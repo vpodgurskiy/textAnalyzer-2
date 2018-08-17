@@ -36,6 +36,8 @@ public class CLI {
 
             switch (key) {
                 case FULL:
+
+                    //Избавляемся от ифов
                     if (inputStream.length() <= KEY_LENGTH) {
                         System.out.println(help());
                         break;
@@ -45,6 +47,7 @@ public class CLI {
                     break;
 
                 case CHAR:
+                    //Избавляемся от ифов
                     if (inputStream.length() <= KEY_LENGTH) {
                         System.out.println(help());
                         break;
@@ -53,6 +56,7 @@ public class CLI {
                     System.out.println(textStatistics.toStringChar());
                     break;
                 case WORD:
+                    //Избавляемся от ифов
                     if (inputStream.length() <= KEY_LENGTH) {
                         System.out.println(help());
                         break;
