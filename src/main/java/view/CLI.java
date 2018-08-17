@@ -9,7 +9,6 @@ public class CLI {
     /**
      * main метод, ожидает строку ввода из консоли,
      * затем анализирует введенный текст и обрабатывает результат.
-     * @param args -
      */
     public static void main(String[] args) {
 
@@ -17,6 +16,7 @@ public class CLI {
 
         TextStatistics textStatistics;
 
+        final String FULL = "--full";
         final String CHAR = "--char";
         final String WORD = "--word";
         final String HELP = "--help";
@@ -30,11 +30,20 @@ public class CLI {
 
             final String inputStream = getInputText();
 
-            int finalIndex = inputStream.length() <= KEY_LENGTH ? inputStream.length() : KEY_LENGTH;
+            int index = inputStream.length() <= KEY_LENGTH ? inputStream.length() : KEY_LENGTH;
 
-            final String key = inputStream.substring(0, finalIndex);
+            final String key = inputStream.substring(0, index);
 
             switch (key) {
+                case FULL:
+                    if (inputStream.length() <= KEY_LENGTH) {
+                        System.out.println(help());
+                        break;
+                    }
+                    textStatistics = textAnalyzer.getTextStatistics(inputStream);
+                    System.out.println(textStatistics.toString());
+                    break;
+
                 case CHAR:
                     if (inputStream.length() <= KEY_LENGTH) {
                         System.out.println(help());
@@ -58,8 +67,7 @@ public class CLI {
                     runAnalyze = false;
                     break;
                 default:
-                    textStatistics = textAnalyzer.getTextStatistics(inputStream);
-                    System.out.println(textStatistics.toString());
+                    System.out.println(help());
                     break;
             }
         }
@@ -67,7 +75,7 @@ public class CLI {
 
     /**
      * Метод парсит входящий поток данных, пока из консоли, в дальнейшем может быть по другому
-     * @return
+     * @return - строку с клавиатуры.
      */
     private static String getInputText() {
         System.out.println("TextAnalyzer_>");
@@ -84,9 +92,10 @@ public class CLI {
         return  "\n" +
                 "usage:\n\n" +
                 "--help, print help\n" +
-                "<arg> print full statistics\n" +
-                "--char <arg>  print only char statistics\n" +
-                "--word <arg>  print only word statistics\n" +
+                "\n" +
+                "--full <string> analyze & print oll available statistic" +
+                "--char <string>  print only char statistics\n" +
+                "--word <string>  print only word statistics\n" +
                 "--quit, end program\n\n";
     }
 }
