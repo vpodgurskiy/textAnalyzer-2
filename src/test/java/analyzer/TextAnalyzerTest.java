@@ -6,7 +6,7 @@ import java.util.TreeMap;
 import static org.assertj.core.api.Assertions.*;
 
 public class TextAnalyzerTest {
-
+//пока тест аж "однин штука" то эти меременные можно прям в него засунуть.
     private int expectedTotalChar;
     private int expectedTotalCharWithoutSpaces;
     private TreeMap<String, Integer> expectedNumberOfWords;
@@ -20,6 +20,13 @@ public class TextAnalyzerTest {
     @Test
     public void textParser() {
         textForAnalyze = "раз, два, раз, три-четыре!";
+
+        //Считаю, что у этого теста не достаточно граничных состояний.
+        //как минимум входящая строка очень слишком простая.
+        //
+        //
+        //
+
 
         textStatistics = new TextAnalyzer().getTextStatistics(textForAnalyze);
 
