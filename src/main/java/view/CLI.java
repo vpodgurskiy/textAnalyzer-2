@@ -1,5 +1,6 @@
 package view;
 
+import controller.FileController;
 import models.TextStatistics;
 import analyzer.TextAnalyzer;
 import java.util.*;
@@ -21,6 +22,7 @@ public class CLI {
         final String WORD = "--word";
         final String HELP = "--help";
         final String QUIT = "--quit";
+        final String FILE = "--file";
 
         final int KEY_LENGTH = 6;
 
@@ -50,6 +52,13 @@ public class CLI {
                 case WORD:
                     textStatistics = textAnalyzer.getWordTextStatistics(inputStream.substring(KEY_LENGTH + 1));
                     System.out.println(textStatistics.toStringWord());
+                    break;
+                case FILE:
+                    final String filePath = FileController.getPath(inputStream);
+                    final String text = FileController.readFromFile(filePath);
+                    textStatistics = textAnalyzer.getTextStatistics(text);
+                    //FileController.writeToFile(filePath, textStatistics.toString());
+                    System.out.println(textStatistics.toString());
                     break;
                 case QUIT:
                     runAnalyze = false;
